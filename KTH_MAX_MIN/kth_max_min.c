@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-// Ascending order sorting function (Bubble Sort used here)
+// Ascending order sorting function (Bubble Sort)
 void sortArray(int arr[], int n) {
     for (int i = 0; i < n-1; i++) {
         for (int j = 0; j < n-i-1; j++) {
@@ -25,10 +25,14 @@ void printArray(int arr[], int n) {
 int main() {
     int arr[] = {5, 9, 3, 1, 4, 0, 7, 8, 6, 2};
     int n = sizeof(arr) / sizeof(arr[0]);
-    int k = 3;  // যেকোনো k দিয়ে চালাতে পারো
+    int k;
 
     printf("Original array: ");
     printArray(arr, n);
+
+    // Ask user for value of k
+    printf("Enter the value of k: ");
+    scanf("%d", &k);
 
     sortArray(arr, n);
 
@@ -39,7 +43,7 @@ int main() {
         printf("K-th Minimum (%d-th): %d\n", k, arr[k-1]);
         printf("K-th Maximum (%d-th): %d\n", k, arr[n-k]);
     } else {
-        printf("Invalid value of k.\n");
+        printf("Invalid value of k. Please enter a number between 1 and %d.\n", n);
     }
 
     return 0;
